@@ -925,7 +925,8 @@ stock W3DoLevelCheck(client) {
 forward OnWar3EventSpawn(client);
 
 //when player dies, fires only in war3 mode
-forward OnWar3EventDeath(victim, attacker, deathrace);
+//Distance in feet
+forward OnWar3EventDeath(victim, attacker, deathrace, distance, attacker_hpleft);
 
 //very generic damage event
 //derrived from the game engine's posthurt event
