@@ -60,7 +60,7 @@ bool:War3Source_InitForwards()
     g_OnWar3PluginReadyHandle3=CreateGlobalForward("OnWar3PluginReady",ET_Ignore); //unodered rest of the items or races. backwards compatable..
     
     g_OnWar3EventSpawnFH=CreateGlobalForward("OnWar3EventSpawn",ET_Ignore,Param_Cell);
-    g_OnWar3EventDeathFH=CreateGlobalForward("OnWar3EventDeath",ET_Ignore,Param_Cell,Param_Cell,Param_Cell);
+    g_OnWar3EventDeathFH=CreateGlobalForward("OnWar3EventDeath",ET_Ignore,Param_Cell,Param_Cell,Param_Cell,Param_Cell,Param_Cell,Param_Cell);
 
     g_CheckCompatabilityFH=CreateGlobalForward("CheckWar3Compatability",ET_Ignore,Param_String);
     g_War3InterfaceExecFH=CreateGlobalForward("War3InterfaceExec",ET_Ignore);
@@ -81,11 +81,13 @@ DoForward_OnWar3EventSpawn(client){
     Call_PushCell(client);
     Call_Finish(dummyreturn);
 }
-DoForward_OnWar3EventDeath(victim,killer,deathrace){
+DoForward_OnWar3EventDeath(victim,killer,deathrace,distance,attacker_hpleft){
     Call_StartForward(g_OnWar3EventDeathFH);
     Call_PushCell(victim);
     Call_PushCell(killer);
     Call_PushCell(deathrace);
+    Call_PushCell(distance);
+    Call_PushCell(attacker_hpleft);
     Call_Finish(dummyreturn);
 }
 
